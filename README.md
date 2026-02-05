@@ -1,8 +1,8 @@
 # system_ml_v4
 
-Повторяет **первый проект** (system_ml: pipeline с тайлингом, two-pass), но вместо **Qwen2-VL-2B** используется **Qwen3-VL-2B**.
+Используется **Qwen3-VL-2B**.
 
-- Тот же пайплайн: препроцессинг → тайлинг → извлечение по тайлам → two-pass (extract → merge → structure) → ответ API.
+- Препроцессинг → тайлинг → извлечение по тайлам → two-pass (extract → merge → structure) → ответ API.
 - Типы диаграмм: BPMN, UML, C4, OTHER.
 - Модель: Qwen3-VL-2B (по умолчанию полная `Qwen/Qwen3-VL-2B-Instruct` с 4-bit через BitsAndBytes — все веса, включая `lm_head`, загружаются корректно).
 
