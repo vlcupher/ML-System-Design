@@ -1,0 +1,24 @@
+# Diagram Recognition Service v4 - CPU (Qwen3-VL-2B)
+FROM python:3.11-slim
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libjpeg-dev zlib1g-dev git \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt requirements-cpu.txt ./
+RUN pip install --upgrade pip \
+    && pip install --no-cache-dir -r requirements-cpu.txt
+
+COPY src ./src
+COPY docker/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENV PYTHONPATH=/app/src
+ENV DEVICE=cpu
+ENV PORT=8000
+
+EXPOSE 8000
+
+ENTRYPOINT ["/entrypoint.sh"]

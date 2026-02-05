@@ -1,0 +1,9 @@
+-r requirements.txt
+torch>=2.1.0
+# Qwen3-VL (transformers from git until stable release)
+transformers @ git+https://github.com/huggingface/transformers
+accelerate>=0.26.0
+safetensors>=0.4.0
+gradio>=4.0.0
+torchvision>=0.16.0
+bitsandbytes>=0.43.0
